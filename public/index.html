@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meeting Summarizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Meeting Summarizer</h1>
+      <p>Upload your meeting audio to generate an executive summary and action items.</p>
+    </header>
+
+    <main>
+      <section id="upload-section" class="card">
+        <div id="drop-zone" class="drop-zone">
+          <p>Drag and drop an audio file here or</p>
+          <div class="button-group">
+            <button id="browse-btn" class="btn primary">Browse Files</button>
+            <button id="demo-btn" class="btn secondary">Load Demo Audio</button>
+          </div>
+          <input type="file" id="audio-input" accept=".mp3,.wav,.m4a,.webm,.ogg" hidden>
+          <div class="formats">
+            <span>Supported: .mp3, .wav, .m4a, .webm, .ogg (Max 75MB)</span>
+          </div>
+        </div>
+
+        <div id="file-preview" class="hidden">
+          <p class="file-name" id="file-name"></p>
+          <audio id="audio-player" controls></audio>
+          <button id="process-btn" class="btn primary full-width">Generate Intelligence</button>
+          <button id="cancel-btn" class="btn secondary full-width">Cancel</button>
+        </div>
+
+        <div id="loading-state" class="hidden">
+          <div class="spinner"></div>
+          <p id="status-text">Processing...</p>
+        </div>
+
+        <div id="error-message" class="hidden error">
+        </div>
+      </section>
+
+      <section id="results-dashboard" class="hidden">
+        <div class="results-header">
+          <h2>Meeting Intelligence</h2>
+          <div class="actions">
+            <button id="copy-all-btn" class="btn secondary">Copy All (Markdown)</button>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Card 1: Executive Summary & Key Topics -->
+          <div class="card summary-card">
+            <h3>Executive Summary</h3>
+            <p id="summary-text"></p>
+            <h4>Key Topics</h4>
+            <ul id="topics-list" class="tags-list"></ul>
+          </div>
+
+          <!-- Card 2: Decisions Made -->
+          <div class="card decisions-card">
+            <h3>Decisions Made</h3>
+            <ul id="decisions-list" class="checklist"></ul>
+          </div>
+
+          <!-- Card 3: Action Items Table -->
+          <div class="card actions-card full-span">
+            <h3>Action Items</h3>
+            <div class="table-responsive">
+              <table id="actions-table">
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Assignee</th>
+                    <th>Deadline</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Card 4: Full Transcript -->
+          <div class="card transcript-card full-span">
+            <details>
+              <summary>View Full Transcript</summary>
+              <div class="transcript-content">
+                <button id="copy-transcript-btn" class="btn small secondary">Copy Transcript</button>
+                <p id="transcript-text"></p>
+              </div>
+            </details>
+          </div>
+        </div>
+        
+        <button id="reset-btn" class="btn primary full-width mt-1">Upload Another Meeting</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
