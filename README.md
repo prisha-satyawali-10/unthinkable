@@ -4,7 +4,7 @@ A lightweight and robust web application that transcribes meeting audio and extr
 
 **🔗 Live Demo:** [meetingsummary-alpha.vercel.app](https://meetingsummary-alpha.vercel.app/)
 
-**🎥 Video Demonstration:** [Add your video link here — YouTube/Loom URL]
+**🎥 Video Demonstration:** [https://drive.google.com/file/d/1jk-4A_qWL6HlKiVGGfv09XJ_u12kmLX6/view?usp=sharing]
 
 ---
 
